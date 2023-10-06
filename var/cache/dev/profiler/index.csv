@@ -334,3 +334,10 @@ deacae,127.0.0.1,GET,http://localhost:8000/images/pic01.jpg,1696576397,,404
 52cb0a,::1,GET,http://localhost:8000/images/bg.jpg,1696576398,,404
 2845f6,::1,GET,http://localhost:8000/images/overlay.png,1696576399,a6c153,404
 a6c153,::1,GET,http://localhost:8000/images/overlay.png,1696576399,,404
+f8c6ad,127.0.0.1,GET,http://localhost:8000/,1696576798,,200
+3f858b,127.0.0.1,GET,http://localhost:8000/images/pic02.jpg,1696576799,fd5357,404
+fd5357,127.0.0.1,GET,http://localhost:8000/images/pic02.jpg,1696576799,,404
+cd6ade,127.0.0.1,GET,http://localhost:8000/images/pic01.jpg,1696576799,676c09,404
+676c09,127.0.0.1,GET,http://localhost:8000/images/pic01.jpg,1696576799,,404
+c6e444,127.0.0.1,GET,http://localhost:8000/images/pic03.jpg,1696576799,64a343,404
+64a343,127.0.0.1,GET,http://localhost:8000/images/pic03.jpg,1696576799,,404

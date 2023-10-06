@@ -148,7 +148,10 @@ class __TwigTemplate_2f53b162e17ab809c8e1a7d14345f3f28164ceb2e44e459f1c60bfabb02
 \t\t<!-- Header -->
 \t\t<header id=\"header\">
 \t\t\t<div class=\"logo\">
-\t\t\t\t<span class=\"icon fa-gem\"></span>
+\t\t\t\t<img class=\"logo\" src=\"";
+        // line 24
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/images/awit_white.png"), "html", null, true);
+        echo "\">
 \t\t\t</div>
 \t\t\t<div class=\"content\">
 \t\t\t\t<div class=\"inner\">
@@ -559,7 +562,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
     public function getDebugInfo()
     {
-        return array (  537 => 374,  527 => 373,  191 => 46,  181 => 45,  143 => 16,  133 => 15,  117 => 9,  111 => 5,  101 => 4,  86 => 389,  82 => 388,  78 => 387,  74 => 386,  70 => 385,  62 => 379,  59 => 373,  56 => 45,  54 => 15,  52 => 4,  47 => 1,);
+        return array (  540 => 374,  530 => 373,  194 => 46,  184 => 45,  153 => 24,  143 => 16,  133 => 15,  117 => 9,  111 => 5,  101 => 4,  86 => 389,  82 => 388,  78 => 387,  74 => 386,  70 => 385,  62 => 379,  59 => 373,  56 => 45,  54 => 15,  52 => 4,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -587,7 +590,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 \t\t<!-- Header -->
 \t\t<header id=\"header\">
 \t\t\t<div class=\"logo\">
-\t\t\t\t<span class=\"icon fa-gem\"></span>
+\t\t\t\t<img class=\"logo\" src=\"{{ asset('assets/images/awit_white.png') }}\">
 \t\t\t</div>
 \t\t\t<div class=\"content\">
 \t\t\t\t<div class=\"inner\">
