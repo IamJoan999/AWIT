@@ -2,19 +2,17 @@
 
 {% block title %}Hello AboutController!{% endblock %}
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+{% block main %}
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+<!-- About -->
+			<div id="about">
+				<h2 class="major">About</h2>
+				<span class="image main"><img src="images/pic03.jpg" alt="" /></span>
+				<p>Lorem ipsum dolor sit amet, consectetur et adipiscing elit. Praesent eleifend dignissim arcu, at
+					eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula
+					lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices. Aliquam libero et malesuada
+					fames ac ante ipsum primis in faucibus. Cras viverra ligula sit amet ex mollis mattis lorem ipsum
+					dolor sit amet.</p>
+			</div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/wamp/www/Cours/AWIT/Awit/src/Controller/AboutController.php'|file_link(0) }}">src/Controller/AboutController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/wamp/www/Cours/AWIT/Awit/templates/about/index.html.twig'|file_link(0) }}">templates/about/index.html.twig</a></code></li>
-    </ul>
-</div>
 {% endblock %}

@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class TiersController extends AbstractController
 {
-    #[Route('/tiers', name: 'app_tiers')]
+    #[Route('/tiers', name: 'tiers.index')]
     public function index(): Response
     {
         return $this->render('tiers/index.html.twig', [

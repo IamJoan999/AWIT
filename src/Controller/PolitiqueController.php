@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class PolitiqueController extends AbstractController
 {
-    #[Route('/politique', name: 'app_politique')]
+    #[Route('/politique', name: 'politique.index')]
     public function index(): Response
     {
         return $this->render('politique/index.html.twig', [

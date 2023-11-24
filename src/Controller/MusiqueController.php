@@ -6,13 +6,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class MethodesController extends AbstractController
+class MusiqueController extends AbstractController
 {
-    #[Route('/methodes', name: 'methodes.index')]
+    #[Route('/musique', name: 'musique.index')]
     public function index(): Response
     {
-        return $this->render('methodes/index.html.twig', [
-            'controller_name' => 'MethodesController',
+        return $this->render('musique/index.html.twig', [
+            'controller_name' => 'MusiqueController',
         ]);
     }
 }
