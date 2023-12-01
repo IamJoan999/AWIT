@@ -6,13 +6,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class ConnexionController extends AbstractController
+class SecurityController extends AbstractController
 {
-    #[Route('/connexion', name: 'connexion.index')]
+    #[Route('/security', name: 'app_security')]
     public function index(): Response
     {
-        return $this->render('connexion/index.html.twig', [
-            'controller_name' => 'ConnexionController',
+        return $this->render('security/index.html.twig', [
+            'controller_name' => 'SecurityController',
         ]);
     }
 }
