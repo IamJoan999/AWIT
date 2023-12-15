@@ -18,7 +18,6 @@ class Client
      *
      * @ORM\Column(name="LOGINCLI", type="string", length=25, nullable=false, options={"fixed"=true})
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $logincli;
 
@@ -60,6 +59,13 @@ class Client
     public function getLogincli(): ?string
     {
         return $this->logincli;
+    }
+
+    public function setLogincli(?string $loginCli): static
+    {
+        $this->logincli = $loginCli;
+
+        return $this;
     }
 
     public function getMdpcli(): ?string
