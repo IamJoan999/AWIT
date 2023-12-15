@@ -60,7 +60,7 @@ class SecurityController extends AbstractController
             }
 
             if($clientRepository->findOneBy(['logincli'=>$username]) != null) {
-                return new RedirectResponse('/', 302, ['last_username'=>$lastUsername, 'error'=>$error, 'message'=>'Veuillez vous logger']);
+                return new RedirectResponse('login', 302, ['last_username'=>$lastUsername, 'error'=>$error, 'message'=>'Veuillez vous logger']);
             } else {
                 return $this->render('security/register.html.twig', ['last_username' => $lastUsername, 'error'=> $error, 'message'=> 'Veuillez recommencer']);
             }
