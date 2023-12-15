@@ -32,7 +32,11 @@
 			</div>
 			<nav>
 				<ul>
-					<li><a href="{{ path('app_login') }}">Login</a></li>
+					{% if app.user %}
+						<li><a href="{{ path('app_logout') }}">Logout</a></li>
+					{% else %}
+						<li><a href="{{ path('app_login') }}">Login</a></li>
+					{% endif %}
 					<li><a href="{{ path('tiers.index') }}">Tiers</a></li>
 					<li><a href="{{ path('musique.index') }}">Musique</a></li>
 					<li><a href="{{ path('about.index') }}">About</a></li>

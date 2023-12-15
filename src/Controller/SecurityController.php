@@ -16,6 +16,7 @@ use Symfony\Component\Security\Http\Authentication\UserAuthenticatorInterface;
 use App\Security\User;
 use Exeption;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use App\Security\UserProvider;
 
 class SecurityController extends AbstractController
 {
@@ -52,9 +53,6 @@ class SecurityController extends AbstractController
             $client->setLogincli($username);
             $client->setMdpcli($password);
 
-            $numDroit = new DroitRepository($entityManager);
-            $client->setNumDroit($numDroit->find(2));
-
             try {
                 $clientRepository->save($client, true);
             } catch(Exception) {
@@ -62,11 +60,26 @@ class SecurityController extends AbstractController
             }
 
             if($clientRepository->findOneBy(['logincli'=>$username]) != null) {
-                return new RedirectResponse('logincli', 302, ['last_username'=>$lastUsername, 'error'=>$error, 'message'=>'Veuillez vous logger']);
+                return new RedirectResponse('/', 302, ['last_username'=>$lastUsername, 'error'=>$error, 'message'=>'Veuillez vous logger']);
             } else {
                 return $this->render('security/register.html.twig', ['last_username' => $lastUsername, 'error'=> $error, 'message'=> 'Veuillez recommencer']);
             }
         }
         return $this->render('security/register.html.twig', ['last_username' => $lastUsername, 'error' => $error, 'message'=>'']);
+    }
+
+    #[Route(path: '/login', name: 'app_login')]
+    public function login(AuthenticationUtils $authenticationUtils): Response
+    {
+        // if ($this->getUser()) {
+        //     return $this->redirectToRoute('target_path');
+        // }
+
+        // get the login error if there is one
+        $error = $authenticationUtils->getLastAuthenticationError();
+        // last username entered by the user
+        $lastUsername = $authenticationUtils->getLastUsername();
+
+        return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
     }
 }
