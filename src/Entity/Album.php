@@ -2,14 +2,13 @@
 
 namespace App\Entity;
 
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Album
  *
  * @ORM\Table(name="ALBUM")
- * @ORM\Entity(repositoryClass="App\Repository\AlbumRepository")
+ * @ORM\Entity
  */
 class Album
 {
@@ -25,7 +24,7 @@ class Album
     /**
      * @var string|null
      *
-     * @ORM\Column(name="NOM", type="string", length=25, nullable=true, options={"fixed"=true})
+     * @ORM\Column(name="NOM", type="string", length=50, nullable=true, options={"fixed"=true})
      */
     private $nom;
 
@@ -35,35 +34,6 @@ class Album
      * @ORM\Column(name="IMAGE", type="string", length=255, nullable=true, options={"fixed"=true})
      */
     private $image;
-
-    public function getIdalbum(): ?string
-    {
-        return $this->idalbum;
-    }
-
-    public function getNom(): ?string
-    {
-        return $this->nom;
-    }
-
-    public function setNom(?string $nom): static
-    {
-        $this->nom = $nom;
-
-        return $this;
-    }
-
-    public function getImage(): ?string
-    {
-        return $this->image;
-    }
-
-    public function setImage(?string $image): static
-    {
-        $this->image = $image;
-
-        return $this;
-    }
 
 
 }

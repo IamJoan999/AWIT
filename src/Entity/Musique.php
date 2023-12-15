@@ -2,16 +2,13 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Musique
  *
  * @ORM\Table(name="MUSIQUE", indexes={@ORM\Index(name="I_FK_MUSIQUE_ALBUM", columns={"IDALBUM"})})
- * @ORM\Entity(repositoryClass="App\Repository\MusiqueRepository")
+ * @ORM\Entity
  */
 class Musique
 {
@@ -46,7 +43,7 @@ class Musique
     private $parole;
 
     /**
-     * @var \App\Entity\Album
+     * @var \Album
      *
      * @ORM\ManyToOne(targetEntity="Album")
      * @ORM\JoinColumns({
@@ -108,131 +105,6 @@ class Musique
         $this->idabo = new \Doctrine\Common\Collections\ArrayCollection();
         $this->idaut = new \Doctrine\Common\Collections\ArrayCollection();
         $this->idgrp = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    public function getRefmus(): ?string
-    {
-        return $this->refmus;
-    }
-
-    public function getTitre(): ?string
-    {
-        return $this->titre;
-    }
-
-    public function setTitre(?string $titre): static
-    {
-        $this->titre = $titre;
-
-        return $this;
-    }
-
-    public function getSon(): ?string
-    {
-        return $this->son;
-    }
-
-    public function setSon(?string $son): static
-    {
-        $this->son = $son;
-
-        return $this;
-    }
-
-    public function getParole(): ?string
-    {
-        return $this->parole;
-    }
-
-    public function setParole(?string $parole): static
-    {
-        $this->parole = $parole;
-
-        return $this;
-    }
-
-    public function getIdalbum(): ?Album
-    {
-        return $this->idalbum;
-    }
-
-    public function setIdalbum(?Album $idalbum): static
-    {
-        $this->idalbum = $idalbum;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Abonnement>
-     */
-    public function getIdabo(): Collection
-    {
-        return $this->idabo;
-    }
-
-    public function addIdabo(Abonnement $idabo): static
-    {
-        if (!$this->idabo->contains($idabo)) {
-            $this->idabo->add($idabo);
-        }
-
-        return $this;
-    }
-
-    public function removeIdabo(Abonnement $idabo): static
-    {
-        $this->idabo->removeElement($idabo);
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Auteur>
-     */
-    public function getIdaut(): Collection
-    {
-        return $this->idaut;
-    }
-
-    public function addIdaut(Auteur $idaut): static
-    {
-        if (!$this->idaut->contains($idaut)) {
-            $this->idaut->add($idaut);
-        }
-
-        return $this;
-    }
-
-    public function removeIdaut(Auteur $idaut): static
-    {
-        $this->idaut->removeElement($idaut);
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Groupe>
-     */
-    public function getIdgrp(): Collection
-    {
-        return $this->idgrp;
-    }
-
-    public function addIdgrp(Groupe $idgrp): static
-    {
-        if (!$this->idgrp->contains($idgrp)) {
-            $this->idgrp->add($idgrp);
-        }
-
-        return $this;
-    }
-
-    public function removeIdgrp(Groupe $idgrp): static
-    {
-        $this->idgrp->removeElement($idgrp);
-
-        return $this;
     }
 
 }
