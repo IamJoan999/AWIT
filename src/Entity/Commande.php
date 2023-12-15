@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -61,6 +62,71 @@ class Commande
      * })
      */
     private $idabo;
+
+    public function getRefcom(): ?string
+    {
+        return $this->refcom;
+    }
+
+    public function getDatecre(): ?\DateTimeInterface
+    {
+        return $this->datecre;
+    }
+
+    public function setDatecre(?\DateTimeInterface $datecre): static
+    {
+        $this->datecre = $datecre;
+
+        return $this;
+    }
+
+    public function getDatedebut(): ?\DateTimeInterface
+    {
+        return $this->datedebut;
+    }
+
+    public function setDatedebut(?\DateTimeInterface $datedebut): static
+    {
+        $this->datedebut = $datedebut;
+
+        return $this;
+    }
+
+    public function getDatefin(): ?\DateTimeInterface
+    {
+        return $this->datefin;
+    }
+
+    public function setDatefin(?\DateTimeInterface $datefin): static
+    {
+        $this->datefin = $datefin;
+
+        return $this;
+    }
+
+    public function getLogincli(): ?Client
+    {
+        return $this->logincli;
+    }
+
+    public function setLogincli(?Client $logincli): static
+    {
+        $this->logincli = $logincli;
+
+        return $this;
+    }
+
+    public function getIdabo(): ?Abonnement
+    {
+        return $this->idabo;
+    }
+
+    public function setIdabo(?Abonnement $idabo): static
+    {
+        $this->idabo = $idabo;
+
+        return $this;
+    }
 
 
 }

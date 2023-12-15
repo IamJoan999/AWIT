@@ -2,6 +2,9 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -55,6 +58,74 @@ class Abonnement
     public function __construct()
     {
         $this->refmus = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    public function getIdabo(): ?string
+    {
+        return $this->idabo;
+    }
+
+    public function getNom(): ?string
+    {
+        return $this->nom;
+    }
+
+    public function setNom(?string $nom): static
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): static
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getPrixmensuel(): ?string
+    {
+        return $this->prixmensuel;
+    }
+
+    public function setPrixmensuel(?string $prixmensuel): static
+    {
+        $this->prixmensuel = $prixmensuel;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Musique>
+     */
+    public function getRefmus(): Collection
+    {
+        return $this->refmus;
+    }
+
+    public function addRefmu(Musique $refmu): static
+    {
+        if (!$this->refmus->contains($refmu)) {
+            $this->refmus->add($refmu);
+            $refmu->addIdabo($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRefmu(Musique $refmu): static
+    {
+        if ($this->refmus->removeElement($refmu)) {
+            $refmu->removeIdabo($this);
+        }
+
+        return $this;
     }
 
 }

@@ -2,6 +2,9 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -41,6 +44,50 @@ class Groupe
     public function __construct()
     {
         $this->refmus = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    public function getIdgrp(): ?string
+    {
+        return $this->idgrp;
+    }
+
+    public function getNom(): ?string
+    {
+        return $this->nom;
+    }
+
+    public function setNom(?string $nom): static
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Musique>
+     */
+    public function getRefmus(): Collection
+    {
+        return $this->refmus;
+    }
+
+    public function addRefmu(Musique $refmu): static
+    {
+        if (!$this->refmus->contains($refmu)) {
+            $this->refmus->add($refmu);
+            $refmu->addIdgrp($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRefmu(Musique $refmu): static
+    {
+        if ($this->refmus->removeElement($refmu)) {
+            $refmu->removeIdgrp($this);
+        }
+
+        return $this;
     }
 
 }
