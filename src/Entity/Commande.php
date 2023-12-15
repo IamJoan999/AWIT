@@ -44,7 +44,7 @@ class Commande
     private $datefin;
 
     /**
-     * @var \Abonnement
+     * @var \App\Entity\Abonnement
      *
      * @ORM\ManyToOne(targetEntity="Abonnement")
      * @ORM\JoinColumns({

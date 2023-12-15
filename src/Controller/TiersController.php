@@ -14,9 +14,9 @@ class TiersController extends AbstractController
     #[Route('/tiers', name: 'tiers.index')]
     public function index(AbonnementRepository $abonnementRepository, Request $request): Response
     {
-        $tiers = new Abonnement();
+        $lesTiers = $abonnementRepository->getAll();
         return $this->render('tiers/index.html.twig', [
-            'controller_name' => 'TiersController',
+            'lesTiers' => $lesTiers
         ]);
     }
 }

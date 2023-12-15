@@ -46,7 +46,7 @@ class Musique
     private $parole;
 
     /**
-     * @var \Album
+     * @var \App\Entity\Album
      *
      * @ORM\ManyToOne(targetEntity="Album")
      * @ORM\JoinColumns({

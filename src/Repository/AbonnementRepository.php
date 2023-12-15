@@ -21,6 +21,16 @@ class AbonnementRepository extends ServiceEntityRepository
         parent::__construct($registry, Abonnement::class);
     }
 
+//   /**
+//   * @return Abonnement[] Returns an array of Abonnement objects
+//   */
+    public function getAll(): array
+    {
+        return $this->createQueryBuilder("a")
+        ->getQuery()
+        ->getResult();
+    }
+
 //    /**
 //     * @return Abonnement[] Returns an array of Abonnement objects
 //     */
