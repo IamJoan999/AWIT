@@ -14,7 +14,7 @@ use App\Security\Authenticator;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Security\Http\Authentication\UserAuthenticatorInterface;
 use App\Security\User;
-use Exeption;
+use Exception;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use App\Security\UserProvider;
 
