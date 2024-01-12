@@ -34,6 +34,7 @@
 				<ul>
 					{% if app.user %}
 						<li><a href="{{ path('app_logout') }}">Logout</a></li>
+						<li><a href="#">Profil</a></li>
 					{% else %}
 						<li><a href="{{ path('app_login') }}">Login</a></li>
 					{% endif %}
@@ -52,7 +53,7 @@
 		{% block footer %}
 		<!-- Footer -->
 		<footer id="footer">
-			<p class="copyright">&copy; MOI.</p>
+			<p class="copyright">&copy; MOI - <a href="{{ path('politique.index') }}">Politique de confidentialité</a> - <a href="{{ path('methodes.index') }}">Methodes de paiement<a/></p>
 		</footer>
 		{% endblock %}
 	</div>
