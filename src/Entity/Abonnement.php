@@ -46,6 +46,13 @@ class Abonnement
     private $prixmensuel;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="IMAGE", type="text", length=65535, nullable=false)
+     */
+    private $image;
+
+    /**
      * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\ManyToMany(targetEntity="Musique", mappedBy="idabo")
@@ -97,6 +104,18 @@ class Abonnement
     public function setPrixmensuel(?string $prixmensuel): static
     {
         $this->prixmensuel = $prixmensuel;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): static
+    {
+        $this->image = $image;
 
         return $this;
     }

@@ -6,7 +6,6 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use App\Entity\Album;
 
 /**
  * Musique
@@ -60,7 +59,7 @@ class Musique
      * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\ManyToMany(targetEntity="Abonnement", inversedBy="refmus")
-     * @ORM\JoinTable(name="contenir",
+     * @ORM\JoinTable(name="CONTENIR",
      *   joinColumns={
      *     @ORM\JoinColumn(name="REFMUS", referencedColumnName="REFMUS")
      *   },

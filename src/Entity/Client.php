@@ -61,13 +61,6 @@ class Client
         return $this->logincli;
     }
 
-    public function setLogincli(?string $loginCli): static
-    {
-        $this->logincli = $loginCli;
-
-        return $this;
-    }
-
     public function getMdpcli(): ?string
     {
         return $this->mdpcli;
