@@ -21,6 +21,13 @@ class MusiqueRepository extends ServiceEntityRepository
         parent::__construct($registry, Musique::class);
     }
 
+    public function getAll(): array
+    {
+        return $this->createQueryBuilder("m")
+        ->getQuery()
+        ->getResult();
+    }
+
 //    /**
 //     * @return Musique[] Returns an array of Musique objects
 //     */
