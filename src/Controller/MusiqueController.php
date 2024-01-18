@@ -21,6 +21,9 @@ class MusiqueController extends AbstractController
         if ($this->getUser() != null) {
             $user = $this->getUser()->getUserIdentifier();
             $commande = $commandeRepository->recupCommande($user);
+            if ($commande == []){
+                $commande = array(array());
+            }
         }
         return $this->render('musique/index.html.twig', [
             'lesMusiques' => $lesMusiques,
