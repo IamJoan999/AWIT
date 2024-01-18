@@ -3,12 +3,15 @@
 {% block title %}Awit{% endblock %}
 
 {% block main %}
-{{ dump(test)}}
+{# {{ dump(commande) }}#}
 <div id="musique" style="margin-top: 50px;">
-	<h2 class="major" style="margin-top: 50px;">Voici la liste des musiques</h2>
+	<h3 class="major" style="margin-top: 50px;">Voici la liste des musiques</h3>
+	{% if not app.user %}
+		<h2 style="color:red !important;">Vous devez vous connecter pour écouter de la musique !</h2>
+	{% endif %}
 	<div id="allmus" style="width:100%; text-align:center; padding-left:auto; padding-right:auto;">
 		{% for laMusique in lesMusiques %}
-			<div style="border:2px solid white; border-radius:5px; width:300px; height:400px; padding:5px; display:inline-block; align-items: center; vertical-align: top; margin-bottom:3.5px">
+			<div style="border:2px solid white; border-radius:5px; width:300px; height:600px; padding:5px; display:inline-block; align-items: center; vertical-align: top; margin-bottom:3.5px">
 				<img src="{{ asset(laMusique.idAlbum.image) }}" style="width:250px; height:250px; margin-left: 20px;">
 				<p style="text-align: center;">{{ laMusique.idAlbum.nom }}<br><strong>{{ laMusique.titre }}</strong><br>
 				{% set finalList = "" %}
@@ -27,11 +30,17 @@
 				{% if laMusique.idAbo %}
 					{% for abo in laMusique.idAbo %}
 						<img src="{{ asset(abo.image) }}" style="width:50px; vertical-align:middle">{{ abo.nom }}<br>
-						{#
-						{% if app_login %}
-							{% if  %}
-						{% end if %}
-						#}
+						{% if app.user %}
+							{% if commande == [] %}
+								{% if abo.idAbo == 0 %}
+									<audio controls src="{{ asset(laMusique.son) }}" style="width:250px; height:50px; margin-top:20px;"></audio>
+								{% endif %}
+							{% else %}
+								{% if abo.idAbo <= commande.idAbo.idAbo %}
+									<audio controls src="{{ asset(laMusique.son) }}" style="width:250px; height:50px; margin-top:20px;"></audio>
+								{% endif %}
+							{% endif %}
+						{% endif %}
 					{% endfor %}
 				{% endif %}
 				{#<audio controls src="{{ asset(laMusique.son) }}" style="width:250px; height:50px"></audio>#}

@@ -4,9 +4,12 @@
 
 {% block main %}
 <div id="tiers" style="margin-top: 50px;">
-	<h1 class="major">Voici la liste des Tiers</h2>				
+	<h2 class="major">Voici la liste des Tiers</h2>
+	{% if not app.user %}
+		<h2 style="color:red !important;">Vous devez vous connecter pour acheter un tier !</h2>
+	{% endif %}				
 	{% for leTier in lesTiers %}
-		<div style="border:2px solid white; border-radius:5px; width:400px; height:300px; padding:5px; display:inline-block; align-items: center; vertical-align: top;">
+		<div style="border:2px solid white; border-radius:5px; width:500px; height:600px; padding:5px; display:inline-block; align-items: center; vertical-align: top;">
 			<h2 style="text-align: center;" class="major"><img src="{{ asset(leTier.image) }}" style="width:100px; vertical-align:middle">{{ leTier.nom }}</h2>
 			{% if (leTier.prixMensuel == 0.00) %}
 				<h3>Prix : Gratuit !</h3>
@@ -14,6 +17,13 @@
 				<h3>Prix : {{ leTier.prixMensuel }}€/Mois</h3>
 			{% endif %}
 			<p>{{ leTier.description }}</p>
+			{% if app.user %}
+				{% if leTier.idAbo != 0 %}
+					<form action="{{ path('commander.index', {id:leTier.idAbo} ) }}" method="POST">
+						<button type="submit" name="commande" value="{{ leTier.idAbo }}">COMMANDER</button>
+					</form>
+				{% endif %}
+			{% endif %}
 		</div>
 	{% endfor %}
 </div>

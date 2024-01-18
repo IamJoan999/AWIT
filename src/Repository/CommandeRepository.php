@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Commande;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\Console\Tester\CommandTester;
 
 /**
  * @extends ServiceEntityRepository<Commande>
@@ -21,16 +22,26 @@ class CommandeRepository extends ServiceEntityRepository
         parent::__construct($registry, Commande::class);
     }
 
-    public function test($value): array
+    public function recupCommande($value): array
     {
         return $this->createQueryBuilder('com')
         ->join('App\Entity\Client', 'c', 'WITH', 'com.logincli = c.logincli')
         ->where('c.logincli = :val')
         ->setParameter(':val', $value)
+        ->orderBy('com.refcom', 'DESC')
         ->getQuery()
         ->getResult()
         ;
-   }
+    }
+
+    public function save(Commande $entity, bool $flush = false): void
+    {
+        $this->getEntityManager()->persist($entity);
+
+        if ($flush) {
+            $this->getEntityManager()->flush();
+        }
+    }
 
 //    /**
 //     * @return Commande[] Returns an array of Commande objects

@@ -9,6 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\MusiqueRepository;
 use Symfony\Component\HttpFoundation\Request;
 use App\Repository\CommandeRepository;
+use Exception;
 
 class MusiqueController extends AbstractController
 {
@@ -16,9 +17,13 @@ class MusiqueController extends AbstractController
     public function index(MusiqueRepository $musiqueRepository, CommandeRepository $commandeRepository,Request $request): Response
     {
         $lesMusiques = $musiqueRepository->findAll();
-        $test = $commandeRepository->test($this->getUser()->getUserIdentifier());
+        $commande = array();
+        if ($this->getUser() != null) {
+            $user = $this->getUser()->getUserIdentifier();
+            $commande = $commandeRepository->recupCommande($user);
+        }
         return $this->render('musique/index.html.twig', [
             'lesMusiques' => $lesMusiques,
-            'test' => $test]);
+            'commande' => $commande[0]]);
     }
 }
