@@ -21,6 +21,17 @@ class CommandeRepository extends ServiceEntityRepository
         parent::__construct($registry, Commande::class);
     }
 
+    public function test($value): array
+    {
+        return $this->createQueryBuilder('com')
+        ->join('App\Entity\Client', 'c', 'WITH', 'com.logincli = c.logincli')
+        ->where('c.logincli = :val')
+        ->setParameter(':val', $value)
+        ->getQuery()
+        ->getResult()
+        ;
+   }
+
 //    /**
 //     * @return Commande[] Returns an array of Commande objects
 //     */

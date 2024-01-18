@@ -6,7 +6,7 @@
 <div id="tiers" style="margin-top: 50px;">
 	<h1 class="major">Voici la liste des Tiers</h2>				
 	{% for leTier in lesTiers %}
-		<div style="border:2px solid white; border-radius:5px; width:300px; height:300px; padding:5px; display:inline-block; align-items: center; vertical-align: top;">
+		<div style="border:2px solid white; border-radius:5px; width:400px; height:300px; padding:5px; display:inline-block; align-items: center; vertical-align: top;">
 			<h2 style="text-align: center;" class="major"><img src="{{ asset(leTier.image) }}" style="width:100px; vertical-align:middle">{{ leTier.nom }}</h2>
 			{% if (leTier.prixMensuel == 0.00) %}
 				<h3>Prix : Gratuit !</h3>

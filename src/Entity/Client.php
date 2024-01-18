@@ -61,6 +61,13 @@ class Client
         return $this->logincli;
     }
 
+    public function setLogincli(?string $logincli): static
+    {
+        $this->logincli = $logincli;
+
+        return $this;
+    }
+
     public function getMdpcli(): ?string
     {
         return $this->mdpcli;

@@ -39,6 +39,12 @@ class ClientRepository extends ServiceEntityRepository
         }
     }
 
+
+//**
+//     * @return Client[] Returns an array of Client objects
+//     */
+
+
 //    /**
 //     * @return Client[] Returns an array of Client objects
 //     */
