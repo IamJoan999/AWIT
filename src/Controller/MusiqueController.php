@@ -17,7 +17,7 @@ class MusiqueController extends AbstractController
     public function index(MusiqueRepository $musiqueRepository, CommandeRepository $commandeRepository,Request $request): Response
     {
         $lesMusiques = $musiqueRepository->findAll();
-        $commande = array();
+        $commande = array(array());
         if ($this->getUser() != null) {
             $user = $this->getUser()->getUserIdentifier();
             $commande = $commandeRepository->recupCommande($user);
